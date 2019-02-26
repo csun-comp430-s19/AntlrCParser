@@ -1,6 +1,6 @@
 # AntlrCParser
-Parser for "C--" group
+Parser for "C--"
 
-Members: Cassandra Copp, Curtis Bartlett, Victoria Latta
+Members: Casandra Copp, Curtis Bartlett, Victoria Latta
 
-Currently this parses the C grammar, found in the file 'C.g4' but we will be adjusting the C grammar that this code works with to fit our own language "C--" Some issues yet to be fixed can be seen when using 'testProg3.c'
+Currently this parses the C grammar, found in the file 'C.g4' but we will be adjusting the C grammar that this code works with to fit our own language "C--" 
