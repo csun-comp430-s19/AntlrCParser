@@ -188,7 +188,7 @@ public class MIPSCodeGeneratorStatementTest {
                            assign(deref,
                                   new IntExp(7)),
                            printVar("x")));
-    }
+    }   
 }
 
    
