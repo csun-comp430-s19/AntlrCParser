@@ -1,3 +1,16 @@
+// spim opens, loads file, doesnt run the file though
+// run manually, returns results to console, but not back to Java program
+// testi fails because it gets nothing back from spim :(
+
+//program in c-- >> expected
+// compile(program)
+//compare to expected
+
+//run(compile(program)) == expected
+
+
+
+
 package code_gen;
 
 
@@ -49,12 +62,12 @@ public class MIPSCodeGeneratorTest {
 
         final File file = File.createTempFile(name.getMethodName(),
                                               ".asm",
-                                              new File("testPrograms"));
+                                              new File("C:/testPrograms/"));
         boolean testPassed = false;
         try {
-            final MIPSCodeGenerator gen = new MIPSCodeGenerator(structDecs);
+            final MIPSCodeGenerator gen = new MIPSCodeGenerator(structDecs, null); //added second parameter "null"
             gen.compileExpression(exp);
-            gen.writeCompleteFile(file, true);
+            gen.writeCompleteFile(file); // removed second parameter "true"
             final String[] output = SPIMRunner.runFile(file);
             final int received = parseOutput(output);
             if (wantToSaveFile) {
