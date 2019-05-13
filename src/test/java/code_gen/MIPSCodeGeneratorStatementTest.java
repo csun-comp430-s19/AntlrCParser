@@ -28,9 +28,10 @@ import java.util.LinkedHashMap;
 
 import java.io.File;
 import java.io.IOException;
+import org.apache.commons.io.FileUtils;
+import static org.junit.Assert.assertEquals;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.rules.TestName;
@@ -53,46 +54,23 @@ public class MIPSCodeGeneratorStatementTest {
         }};
 
     @Rule public TestName name = new TestName();
-    
-    // TODO: code duplication with MIPSCodeGeneratorTest
-    public int parseOutput(final String[] spimOutput) {
-        assert(spimOutput.length == 2);
-        return Integer.parseInt(spimOutput[1]);
-    } // parseOutput
 
-    public void assertResult(final int expected, final Stmt stmt) throws IOException {
+    public void assertResult(final File expected, final Stmt stmt) throws IOException {
         assertResult(expected, stmt, new HashMap<StructureName, LinkedHashMap<FieldName, Type>>());
     }
         
-    public void assertResult(final int expected,
+    public void assertResult(final File expected,
                              final Stmt stmt,
                              final Map<StructureName, LinkedHashMap<FieldName, Type>> structDecs) throws IOException {
-        boolean wantToSaveFile = true; // for debugging
-
-        final File file = File.createTempFile(name.getMethodName(),
-                                              ".asm",
-                                              new File("testPrograms"));
-        boolean testPassed = false;
-        try {
+                
+        
             final MIPSCodeGenerator gen = new MIPSCodeGenerator(structDecs);
+            File outputFile = new File("src//output.txt"); 
             gen.compileStatement(stmt);
-            gen.writeCompleteFile(file, false);
-            final String[] output = SPIMRunner.runFile(file);
-            final int received = parseOutput(output);
-            if (wantToSaveFile) {
-                assertEquals("Expected: " + expected + " Received: " + received + " File: " +
-                             file.getAbsolutePath(),
-                             expected,
-                             received);
-            } else {
-                assertEquals(expected, received);
-            }
-            testPassed = true;
-        } finally {
-            if (!wantToSaveFile || testPassed) {
-                file.delete();
-            }
-        }
+            gen.writeCompleteFile(outputFile, true);
+            boolean isTwoEqual = FileUtils.contentEquals(expected, outputFile);
+            assertEquals(true, isTwoEqual);
+        
     } // assertResult
 
     public VariableDeclarationInitializationStmt vardec(final String variableName,
@@ -124,37 +102,42 @@ public class MIPSCodeGeneratorStatementTest {
     public static AssignmentStmt assign(final String varName, final Exp exp) {
         return assign(new VariableLhs(new Variable(varName)), exp);
     }
-
-    @Test
+    
+   /* @Test
     public void testSingleIntVariableDeclaration() throws IOException {
-        assertResult(1, stmts(vardec("x", new IntType(), new IntExp(1)),
+        File expected = new File("src//expected12.txt");
+        assertResult(expected, stmts(vardec("x", new IntType(), new IntExp(1)),
                               printVar("x")));
     }
 
     @Test
     public void testDoubleIntVariableDeclarationGetFirst() throws IOException {
-        assertResult(1, stmts(vardec("x", new IntType(), new IntExp(1)),
+        File expected = new File("src//expected13.txt");
+        assertResult(expected, stmts(vardec("x", new IntType(), new IntExp(1)),
                               vardec("y", new IntType(), new IntExp(2)),
                               printVar("x")));
     }
 
     @Test
     public void testDoubleIntVariableDeclarationGetSecond() throws IOException {
-        assertResult(2, stmts(vardec("x", new IntType(), new IntExp(1)),
+        File expected = new File("src//expected14.txt");
+        assertResult(expected, stmts(vardec("x", new IntType(), new IntExp(1)),
                               vardec("y", new IntType(), new IntExp(2)),
                               printVar("y")));
     }
 
     @Test
     public void testSingleIntAssignment() throws IOException {
-        assertResult(2, stmts(vardec("x", new IntType(), new IntExp(1)),
+        File expected = new File("src//expected15.txt");
+        assertResult(expected, stmts(vardec("x", new IntType(), new IntExp(1)),
                               assign("x", new IntExp(2)),
                               printVar("x")));
     }
 
     @Test
     public void testTwoIntsAssignFirst() throws IOException {
-        assertResult(3, stmts(vardec("x", new IntType(), new IntExp(1)),
+        File expected = new File("src//expected16.txt");
+        assertResult(expected, stmts(vardec("x", new IntType(), new IntExp(1)),
                               vardec("y", new IntType(), new IntExp(2)),
                               assign("x", new IntExp(3)),
                               printVar("x")));
@@ -162,7 +145,8 @@ public class MIPSCodeGeneratorStatementTest {
 
     @Test
     public void testTwoIntsAssignSecond() throws IOException {
-        assertResult(3, stmts(vardec("x", new IntType(), new IntExp(1)),
+        File expected = new File("src//expected17.txt"); 
+        assertResult(expected, stmts(vardec("x", new IntType(), new IntExp(1)),
                               vardec("y", new IntType(), new IntExp(2)),
                               assign("y", new IntExp(3)),
                               printVar("y")));
@@ -178,7 +162,8 @@ public class MIPSCodeGeneratorStatementTest {
         final DereferenceLhs deref = new DereferenceLhs(new VariableLhs(new Variable("p")));
         deref.setTypeAfterDereference(new IntType());
         
-        assertResult(7,
+        File expected = new File("src//expected18.txt");
+        assertResult(expected,
                      stmts(vardec("x",
                                   new IntType(),
                                   new IntExp(5)),
@@ -188,7 +173,7 @@ public class MIPSCodeGeneratorStatementTest {
                            assign(deref,
                                   new IntExp(7)),
                            printVar("x")));
-    }
+    }*/
 }
 
-   
+  

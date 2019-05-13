@@ -29,97 +29,83 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.Rule;
 import org.junit.rules.TestName;
+import org.apache.commons.io.*;
+
 
 public class MIPSCodeGeneratorTest {
     @Rule public TestName name = new TestName();
+   
 
-    public int parseOutput(final String[] spimOutput) {
-        assert(spimOutput.length == 2);
-        return Integer.parseInt(spimOutput[1]);
-    } // parseOutput
-
-    public void assertResult(final int expected, final Exp exp) throws IOException {
+    public void assertResult(final File expected, final Exp exp) throws IOException {
         assertResult(expected, exp, new HashMap<StructureName, LinkedHashMap<FieldName, Type>>());
     }
     
-    public void assertResult(final int expected,
+    public void assertResult(final File expected,
                              final Exp exp,
                              final Map<StructureName, LinkedHashMap<FieldName, Type>> structDecs) throws IOException {
-        boolean wantToSaveFile = true; // for debugging
-
-        final File file = File.createTempFile(name.getMethodName(),
-                                              ".asm",
-                                              new File("testPrograms"));
-        boolean testPassed = false;
-        try {
             final MIPSCodeGenerator gen = new MIPSCodeGenerator(structDecs);
+            File outputFile = new File("src//output.txt"); 
             gen.compileExpression(exp);
-            gen.writeCompleteFile(file, true);
-            final String[] output = SPIMRunner.runFile(file);
-            final int received = parseOutput(output);
-            if (wantToSaveFile) {
-                assertEquals("Expected: " + expected + " Received: " + received + " File: " +
-                             file.getAbsolutePath(),
-                             expected,
-                             received);
-            } else {
-                assertEquals(expected, received);
-            }
-            testPassed = true;
-        } finally {
-            if (!wantToSaveFile || testPassed) {
-                file.delete();
-            }
-        }
-    } // assertResult
-
+            gen.writeCompleteFile(outputFile, true);
+            boolean isTwoEqual = FileUtils.contentEquals(expected, outputFile);
+            assertEquals(true, isTwoEqual);
+    }            
+            
     @Test
     public void testIntLiteral() throws IOException {
-        assertResult(1, new IntExp(1));
+        File expected = new File("src//expected1.txt");
+        assertResult(expected, new IntExp(1));
     }
-
+    
     @Test
     public void testBoolLiteralTrue() throws IOException {
-        assertResult(1, new BoolExp(true));
+        File expected = new File("src//expected2.txt");
+        assertResult(expected, new BoolExp(true));
     }
-
+     
     @Test
     public void testBoolLiteralFalse() throws IOException {
-        assertResult(0, new BoolExp(false));
+        File expected = new File("src//expected3.txt");
+        assertResult(expected, new BoolExp(false));
     }
 
     @Test
     public void testEqualsIntTrue() throws IOException {
-        assertResult(1, new BinopExp(new IntExp(42),
+        File expected = new File("src//expected4.txt");
+        assertResult(expected, new BinopExp(new IntExp(42),
                                      new EqualsOp(),
                                      new IntExp(42)));
     }
 
     @Test
     public void testEqualsIntFalse() throws IOException {
-        assertResult(0, new BinopExp(new IntExp(42),
+        File expected = new File("src//expected11.txt");
+        assertResult(expected, new BinopExp(new IntExp(42),
                                      new EqualsOp(),
                                      new IntExp(43)));
     }
 
     @Test
     public void testEqualsBoolTrue() throws IOException {
-        assertResult(1, new BinopExp(new BoolExp(false),
+        File expected = new File("src//expected5.txt");
+        assertResult(expected, new BinopExp(new BoolExp(false),
                                      new EqualsOp(),
                                      new BoolExp(false)));
     }
 
     @Test
     public void testEqualsBoolFalse() throws IOException {
-        assertResult(0, new BinopExp(new BoolExp(true),
+        File expected = new File("src//expected6.txt");
+        assertResult(expected, new BinopExp(new BoolExp(true),
                                      new EqualsOp(),
                                      new BoolExp(false)));
     }
-
+    
     @Test
     public void testPlus() throws IOException {
         // 2 + 3 = 5
-        assertResult(5, new BinopExp(new IntExp(2),
+        File expected = new File("src//expected7.txt");
+        assertResult(expected, new BinopExp(new IntExp(2),
                                      new PlusOp(),
                                      new IntExp(3)));
     }
@@ -127,21 +113,24 @@ public class MIPSCodeGeneratorTest {
         
     @Test
     public void testSizeofInt() throws IOException {
-        assertResult(4, new SizeofExp(new IntType()));
+        File expected = new File("src//expected8.txt");
+        assertResult(expected, new SizeofExp(new IntType()));
     }
 
     @Test
     public void testSizeofBool() throws IOException {
-        assertResult(4, new SizeofExp(new BoolType()));
+        File expected = new File("src//expected9.txt");
+        assertResult(expected, new SizeofExp(new BoolType()));
     }
 
     
 
     @Test
     public void testSizeofPointer() throws IOException {
-        assertResult(4, new SizeofExp(new PointerType(new IntType())));
+        File expected = new File("src//expected10.txt");
+        assertResult(expected, new SizeofExp(new PointerType(new IntType())));
     }
-
+    
     
 
     

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>VariableTable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CminusCompiler</a> &gt; <a href="index.source.html" class="el_package">code_gen</a> &gt; <span class="el_source">VariableTable.java</span></div><h1>VariableTable.java</h1><pre class="source lang-java linenums">package code_gen;
+
+import syntax.Variable;
+import syntax.Type;
+
+import java.util.LinkedList;
+
+<span class="pc bpc" id="L8" title="1 of 2 branches missed.">public class VariableTable {</span>
+    private LinkedList&lt;VariableEntry&gt; variables;
+
+<span class="fc" id="L11">    public VariableTable() {</span>
+<span class="fc" id="L12">        variables = new LinkedList&lt;VariableEntry&gt;();</span>
+<span class="fc" id="L13">    }</span>
+
+    // returns a point where we were before the push
+    public int pushVariable(final Variable variable,
+                            final Type type,
+                            final int size) {
+<span class="nc" id="L19">        final int resetPoint = variables.size();</span>
+<span class="nc" id="L20">        variables.push(new VariableEntry(variable, type, size));</span>
+<span class="nc" id="L21">        return resetPoint;</span>
+    }
+
+    public void resetTo(final int resetPoint) {
+<span class="nc" id="L25">        final int size = variables.size();</span>
+<span class="nc bnc" id="L26" title="All 4 branches missed.">        assert(resetPoint &lt;= size);</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        for (int cur = size; cur &gt; resetPoint; cur--) {</span>
+<span class="nc" id="L28">            variables.pop();</span>
+        }
+<span class="nc" id="L30">    }</span>
+
+    // gets starting position in memory
+    public int variableOffset(final Variable variable) {
+<span class="nc" id="L34">        int offset = 0;</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (final VariableEntry entry : variables) {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">            if (entry.variable.equals(variable)) {</span>
+<span class="nc" id="L37">                return offset;</span>
+            } else {
+<span class="nc" id="L39">                offset += entry.size;</span>
+            }
+<span class="nc" id="L41">        }</span>
+
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        assert(false);</span>
+<span class="nc" id="L44">        return offset;</span>
+    }
+
+    public int variableSize(final Variable variable) {
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (final VariableEntry entry : variables) {</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            if (entry.variable.equals(variable)) {</span>
+<span class="nc" id="L50">                return entry.size;</span>
+            }
+<span class="nc" id="L52">        }</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        assert(false);</span>
+<span class="nc" id="L54">        return 0;</span>
+    }
+} // VariableTable
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
