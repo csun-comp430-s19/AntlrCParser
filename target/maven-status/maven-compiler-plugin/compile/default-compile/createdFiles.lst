@@ -59,12 +59,9 @@ comp430\cminuscompiler\CminusParser$IfConditionsContext.class
 code_gen\MIPSCodeGenerator.class
 syntax\PointerType.class
 type_checker_syntax\Exp.class
-type_checker_syntax\SizeofExp.class
 comp430\cminuscompiler\CminusParser$SkipContext.class
-type_checker_syntax\StructureDeclaration.class
 syntax\SequenceStmt.class
 syntax\Type.class
-type_checker_syntax\FieldAccessExp.class
 type_checker_syntax\Join.class
 type_checker_syntax\BoolType.class
 code_gen\MIPSRegister.class
@@ -74,7 +71,6 @@ comp430\cminuscompiler\CminusParser$FuncDecParamContext.class
 comp430\cminuscompiler\CminusParser$VarAssignContext.class
 syntax\StructureDeclaration.class
 type_checker_syntax\VariableDeclaration.class
-type_checker_syntax\StructureType.class
 comp430\cminuscompiler\CminusParser$PrintStatementContext.class
 type_checker_syntax\DereferenceLhs.class
 code_gen\Seq.class
@@ -84,6 +80,7 @@ syntax\DereferenceLhs.class
 syntax\ReturnVoidStmt.class
 code_gen\Slt.class
 type_checker_syntax\EqualsOp.class
+type_checker_syntax\CharType.class
 syntax\Variable.class
 code_gen\Mflo.class
 type_checker_syntax\Variable.class
@@ -107,17 +104,15 @@ syntax\Stmt.class
 comp430\cminuscompiler\CminusBaseListener.class
 code_gen\MemoryInstruction.class
 syntax\SizeofExp.class
+type_checker_syntax\CharExp.class
 type_checker_syntax\ExpStmt.class
 comp430\cminuscompiler\CminusParser$VarDecContext.class
-type_checker_syntax\FieldAccessLhs.class
 comp430\cminuscompiler\CminusParser.class
 code_gen\ThreeRegisterInstruction.class
 code_gen\MIPSInstruction.class
 comp430\cminuscompiler\CminusParser$AssignOpContext.class
 syntax\BinopExp.class
-type_checker_syntax\StructureName.class
 comp430\cminuscompiler\CminusParser$MathExprContext.class
-type_checker_syntax\FieldName.class
 syntax\AssignmentStmt.class
 type_checker_syntax\DereferenceExp.class
 syntax\VariableDeclarationInitializationStmt.class

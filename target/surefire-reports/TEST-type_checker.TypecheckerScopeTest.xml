@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="33" failures="0" name="type_checker.TypecheckerScopeTest" time="0.047" errors="0" skipped="0">
+<testsuite tests="37" failures="0" name="type_checker.TypecheckerScopeTest" time="0.011" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_73\jre\bin"/>
@@ -69,30 +69,34 @@
   <testcase classname="type_checker.TypecheckerScopeTest" name="testAssignmentNormal" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testFunctionCallTooManyParams" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testReturnIfOnlyTrue" time="0"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testReturnDuplicate" time="0.016"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testFunctionParameterNonexistentStructure" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testFunctionDefinitionDuplicateParameterNames" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testReturnDuplicate" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testAssignmentNonPointerDereferenceLhs" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testReturnIfBothBranches" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testVariableDefinitionAndUse" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testContinueOutOfWhile" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testNormalFunctionCall" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testCannotMakeVoidLocalVariable" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testContinueNormal" time="0"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testPointerToVariable" time="0.015"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testFunctionDefinitionVoidParam" time="0"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testIfErrorTrueBranch" time="0"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testBreakNormal" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testPointerToVariable" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testFunctionDefinitionVoidParam" time="0.004"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testFunctionCallWrongTypes" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testIfErrorTrueBranch" time="0.001"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testBreakNormal" time="0.001"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testWhileErrorGuard" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testReturnIfOnlyFalse" time="0"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testAddPointer" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testAddPointer" time="0.003"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testAssignmentErrorOnRight" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testFunctionCallNonexistent" time="0"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testAccessUndeclaredVariable" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testAccessUndeclaredVariable" time="0.001"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testPointerDereferenceLhs" time="0"/>
-  <testcase classname="type_checker.TypecheckerScopeTest" name="testPointerDereferenceRhs" time="0.016"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testPointerDereferenceRhs" time="0.001"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testWhileNormal" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testIfNormal" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testReturnNormal" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testIfErrorFalseBranch" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testBreakOutOfWhile" time="0"/>
+  <testcase classname="type_checker.TypecheckerScopeTest" name="testFunctionCallNotEnoughParams" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testFreeNonVoidPointer" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testWhileErrorBody" time="0"/>
   <testcase classname="type_checker.TypecheckerScopeTest" name="testAssignmentNoLhsVariable" time="0"/>

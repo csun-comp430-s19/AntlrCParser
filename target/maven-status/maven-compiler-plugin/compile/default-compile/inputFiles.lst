@@ -1,7 +1,5 @@
-C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\StructureName.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\FunctionDefinition.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\SequenceStmt.java
-C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\SizeofExp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\WhileStmt.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\FunctionCallExp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\PointerType.java
@@ -22,7 +20,7 @@ C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\VariableEntry.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\Seq.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\comp430\cminuscompiler\CminusLexer.java
-C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\FieldName.java
+C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\CharExp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\ExpStmt.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\BoolExp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\MIPSRegister.java
@@ -30,6 +28,7 @@ C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\VariableLhs.j
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\StructureDeclaration.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\BinopExp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\VariableDeclarationInitializationStmt.java
+C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\CharType.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\Lhs.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\ContinueStmt.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\Mflo.java
@@ -75,7 +74,6 @@ C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\Syscall.jav
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\comp430\cminuscompiler\CminusListener.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\La.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\SizeofExp.java
-C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\FieldAccessExp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\BoolExp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\VariableDeclaration.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\VariableDeclaration.java
@@ -85,8 +83,6 @@ C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\Li.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\EqualsOp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\AssignmentStmt.java
-C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\FieldAccessLhs.java
-C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\StructureType.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\BreakStmt.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\PrintStmt.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\FunctionName.java
@@ -110,7 +106,6 @@ C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\SingleRegis
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\ReturnExpStmt.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\AddressOfExp.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\SequenceStmt.java
-C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\StructureDeclaration.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\code_gen\MemoryInstruction.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\syntax\ReturnVoidStmt.java
 C:\Users\Quelyn\Desktop\uptodate\AntlrCParser\src\main\java\type_checker_syntax\IfStmt.java

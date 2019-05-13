@@ -3,33 +3,29 @@
 import java.util.Arrays;
 
 public class Program {
-    public final StructureDeclaration[] structDecs;
+   
     public final FunctionDefinition[] functionDefs;
 
-    public Program(final StructureDeclaration[] structDecs,
-<span class="fc" id="L10">                   final FunctionDefinition[] functionDefs) {</span>
-<span class="fc" id="L11">        this.structDecs = structDecs;</span>
-<span class="fc" id="L12">        this.functionDefs = functionDefs;</span>
-<span class="fc" id="L13">    }</span>
+<span class="fc" id="L9">    public Program(final FunctionDefinition[] functionDefs) {</span>
+        
+<span class="fc" id="L11">        this.functionDefs = functionDefs;</span>
+<span class="fc" id="L12">    }</span>
 
     public int hashCode() {
-<span class="nc" id="L16">        return (Arrays.deepHashCode(structDecs) +</span>
-<span class="nc" id="L17">                Arrays.deepHashCode(functionDefs));</span>
+<span class="nc" id="L15">        return (Arrays.deepHashCode(functionDefs));</span>
     }
 
     public boolean equals(final Object other) {
-<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (other instanceof Program) {</span>
-<span class="nc" id="L22">            final Program otherProgram = (Program)other;</span>
-<span class="nc bnc" id="L23" title="All 2 branches missed.">            return (Arrays.deepEquals(otherProgram.structDecs, structDecs) &amp;&amp;</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">                    Arrays.deepEquals(otherProgram.functionDefs, functionDefs));</span>
+<span class="nc bnc" id="L19" title="All 2 branches missed.">        if (other instanceof Program) {</span>
+<span class="nc" id="L20">            final Program otherProgram = (Program)other;</span>
+<span class="nc" id="L21">            return (Arrays.deepEquals(otherProgram.functionDefs, functionDefs));</span>
         } else {
-<span class="nc" id="L26">            return false;</span>
+<span class="nc" id="L23">            return false;</span>
         }
     }
 
     public String toString() {
-<span class="nc" id="L31">        return (Join.join(&quot;\n&quot;, structDecs) + &quot;\n\n&quot; +</span>
-<span class="nc" id="L32">                Join.join(&quot;\n&quot;, functionDefs) + &quot;\n&quot;);</span>
+<span class="nc" id="L28">        return (Join.join(&quot;\n&quot;, functionDefs) + &quot;\n&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
