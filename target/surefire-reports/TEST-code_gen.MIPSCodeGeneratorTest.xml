@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="11" failures="0" name="code_gen.MIPSCodeGeneratorTest" time="0.22" errors="0" skipped="0">
+<testsuite tests="11" failures="0" name="code_gen.MIPSCodeGeneratorTest" time="0.094" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_73\jre\bin"/>
@@ -63,15 +63,15 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testSizeofBool" time="0.125"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testEqualsBoolFalse" time="0.016"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testEqualsIntTrue" time="0"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testPlus" time="0.016"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testSizeofBool" time="0"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testEqualsBoolFalse" time="0"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testEqualsIntTrue" time="0.015"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testPlus" time="0"/>
   <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testBoolLiteralTrue" time="0.016"/>
   <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testEqualsIntFalse" time="0"/>
   <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testSizeofPointer" time="0.016"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testEqualsBoolTrue" time="0.016"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testBoolLiteralFalse" time="0"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testIntLiteral" time="0"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testSizeofInt" time="0.015"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testEqualsBoolTrue" time="0"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testBoolLiteralFalse" time="0.015"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testIntLiteral" time="0.016"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorTest" name="testSizeofInt" time="0.016"/>
 </testsuite>

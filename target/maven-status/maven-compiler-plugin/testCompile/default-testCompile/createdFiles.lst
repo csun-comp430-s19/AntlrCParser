@@ -1,6 +1,8 @@
+code_gen\MIPSCodeGeneratorFunctionTest.class
 code_gen\MIPSCodeGeneratorStatementTest$1$1.class
 code_gen\MIPSCodeGeneratorTest.class
 LexerParser\Test.class
+code_gen\MIPSCodeGeneratorTestBase.class
 code_gen\MIPSCodeGeneratorStatementTest$1.class
 code_gen\MIPSCodeGeneratorStatementTest.class
 LexerParser\LexerParserTest.class
