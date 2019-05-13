@@ -10,10 +10,10 @@ import org.junit.Test;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.apache.commons.io.*;
-import comp430.cminuscompiler.CminusLexer;
-import comp430.cminuscompiler.CminusLexer;
-import comp430.cminuscompiler.CminusParser;
-import comp430.cminuscompiler.CminusParser;
+import Antler_Lexer_Parser.CminusLexer;
+import Antler_Lexer_Parser.CminusLexer;
+import Antler_Lexer_Parser.CminusParser;
+import Antler_Lexer_Parser.CminusParser;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -45,7 +45,7 @@ public class LexerParserTest {
     }
 @Test
     public void TestLexerandParser() throws IOException{
-    String inputFile ="src//main//java//comp430//cminuscompiler//test.c";
+    String inputFile ="src//main//java//Antler_Lexer_Parser//test.c";
     String expected = "(startRule (type int) (main main) { (progStatements (statement (funcDecParam (type int) (var foo) ( (type int) (var x) ) { (progStatements (statement (varDec (type int) (var x) (assignment =) (mathExpr (exp 1))) ;) (progStatements (loops if ( (ifConditions (var x) (compare <) (exp 2)) ) { (progStatements (statement (varAssign (var x) (assignment =) (mathExpr (var y))) ;)) }))) return (var y) ; }))) } <EOF>)";
     assertResult(inputFile, expected);
     }    

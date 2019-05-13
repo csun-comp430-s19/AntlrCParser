@@ -7,10 +7,10 @@ package LexerParser;
  */
 
 
-import comp430.cminuscompiler.CminusLexer;
-import comp430.cminuscompiler.CminusLexer;
-import comp430.cminuscompiler.CminusParser;
-import comp430.cminuscompiler.CminusParser;
+import Antler_Lexer_Parser.CminusLexer;
+import Antler_Lexer_Parser.CminusLexer;
+import Antler_Lexer_Parser.CminusParser;
+import Antler_Lexer_Parser.CminusParser;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;

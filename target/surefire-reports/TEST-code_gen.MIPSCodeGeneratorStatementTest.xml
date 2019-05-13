@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="14" failures="0" name="code_gen.MIPSCodeGeneratorStatementTest" time="0.428" errors="0" skipped="0">
+<testsuite tests="14" failures="0" name="code_gen.MIPSCodeGeneratorStatementTest" time="0.094" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_73\jre\bin"/>
@@ -65,16 +65,16 @@
   </properties>
   <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testSingleIntAssignment" time="0"/>
   <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testWhileInitiallyTrue" time="0"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testWhileInitiallyFalse" time="0.094"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testDoubleIntVariableDeclarationGetSecond" time="0.031"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testAssignIntThroughPointer" time="0.156"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testDereferenceInt" time="0.067"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testSingleIntVariableDeclaration" time="0.001"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testTwoIntsAssignFirst" time="0.016"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testTwoIntsAssignSecond" time="0.016"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testWhileScope" time="0.015"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testWhileInitiallyFalse" time="0.016"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testDoubleIntVariableDeclarationGetSecond" time="0"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testAssignIntThroughPointer" time="0.015"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testDereferenceInt" time="0"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testSingleIntVariableDeclaration" time="0.016"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testTwoIntsAssignFirst" time="0.015"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testTwoIntsAssignSecond" time="0"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testWhileScope" time="0.016"/>
   <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testIfFalse" time="0"/>
-  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testIfScope" time="0.016"/>
+  <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testIfScope" time="0"/>
   <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testIfTrue" time="0"/>
   <testcase classname="code_gen.MIPSCodeGeneratorStatementTest" name="testDoubleIntVariableDeclarationGetFirst" time="0.016"/>
 </testsuite>
