@@ -1,6 +1,6 @@
 package code_gen;
 
-import code_gen_syntax.BreakStmt;
+
 import code_gen_syntax.BoolExp;
 import code_gen_syntax.VariableExp;
 import code_gen_syntax.IntType;
@@ -20,7 +20,6 @@ import code_gen_syntax.FunctionName;
 import code_gen_syntax.IfStmt;
 import code_gen_syntax.Stmt;
 import code_gen_syntax.AssignmentStmt;
-import code_gen_syntax.LessThanOp;
 import code_gen_syntax.PointerType;
 import code_gen_syntax.Exp;
 import code_gen_syntax.DereferenceExp;
@@ -30,6 +29,8 @@ import code_gen_syntax.BinopExp;
 import code_gen_syntax.PlusOp;
 import code_gen_syntax.SequenceStmt;
 import code_gen.MIPSCodeGenerator;
+import code_gen_syntax.EqualsOp;
+import code_gen_syntax.ReturnExpStmt;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -100,6 +101,7 @@ public class MIPSCodeGeneratorStatementTest extends MIPSCodeGeneratorTestBase<St
         return assign(new VariableLhs(new Variable(varName)), exp);
     }
 
+    
     @Test
     public void testSingleIntVariableDeclaration() throws IOException {
         File expected = new File("src//stmt//expected12.txt");
@@ -205,35 +207,21 @@ public class MIPSCodeGeneratorStatementTest extends MIPSCodeGeneratorTestBase<St
                                 new PrintStmt(new IntExp(2))));
     }
 
-    @Test
-    public void testIfFalse() throws IOException {
-        // if (false) {
-        //   print(1);
-        // } else {
-        //   print(2);
-        // }
-        File expected = new File("src//stmt//expected21.txt");
-        assertResult(expected,
-                     new IfStmt(new BoolExp(false),
-                                new PrintStmt(new IntExp(1)),
-                                new PrintStmt(new IntExp(2))));
-    }
-
-    @Test
+ @Test
     public void testWhileInitiallyFalse() throws IOException {
         // int x = 0;
-        // while (x < 0) {
+        // while (x == 10) {
         //   x = x + 1;
         // }
         // print(x);
 
         final Variable x = new Variable("x");
-        File expected = new File("src//stmt//expected22.txt");
+        File expected = new File("src//stmt//expected21.txt");
         assertResult(expected,
                      stmts(vardec("x", new IntType(), new IntExp(0)),
                            new WhileStmt(new BinopExp(new VariableExp(x),
-                                                      new LessThanOp(),
-                                                      new IntExp(0)),
+                                                      new EqualsOp(),
+                                                      new IntExp(10)),
                                          assign("x", new BinopExp(new VariableExp(x),
                                                                   new PlusOp(),
                                                                   new IntExp(1)))),
@@ -243,18 +231,18 @@ public class MIPSCodeGeneratorStatementTest extends MIPSCodeGeneratorTestBase<St
     @Test
     public void testWhileInitiallyTrue() throws IOException {
         // int x = 0;
-        // while (x < 10) {
+        // while (x == 0) {
         //   x = x + 1;
         // }
         // print(x);
 
         final Variable x = new Variable("x");
-        File expected = new File("src//stmt//expected23.txt");
+         File expected = new File("src//stmt//expected22.txt");
         assertResult(expected,
                      stmts(vardec("x", new IntType(), new IntExp(0)),
                            new WhileStmt(new BinopExp(new VariableExp(x),
-                                                      new LessThanOp(),
-                                                      new IntExp(10)),
+                                                      new EqualsOp(),
+                                                      new IntExp(0)),
                                          assign("x", new BinopExp(new VariableExp(x),
                                                                   new PlusOp(),
                                                                   new IntExp(1)))),
@@ -284,15 +272,17 @@ public class MIPSCodeGeneratorStatementTest extends MIPSCodeGeneratorTestBase<St
         // int x = 0;
         // while (true) {
         //   int x = 1;
-        //   break;
+        //   
         // }
         // print(x);
         File expected = new File("src//stmt//expected25.txt");
         assertResult(expected,
                      stmts(vardec("x", new IntType(), new IntExp(0)),
                            new WhileStmt(new BoolExp(true),
-                                         stmts(vardec("x", new IntType(), new IntExp(1)),
-                                               new BreakStmt())),
+                                         stmts(vardec("x", new IntType(), new IntExp(1))
+                                               )),
                            printVar("x")));
     }
+  
+    
 }

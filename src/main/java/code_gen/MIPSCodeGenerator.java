@@ -5,13 +5,11 @@ import code_gen_syntax.IntType;
 import code_gen_syntax.AssignmentStmt;
 import code_gen_syntax.BoolType;
 import code_gen_syntax.BinopExp;
-import code_gen_syntax.MinusOp;
 import code_gen_syntax.WhileStmt;
 import code_gen_syntax.SequenceStmt;
 import code_gen_syntax.FunctionCallStmt;
 import code_gen_syntax.BoolExp;
 import code_gen_syntax.FunctionCallExp;
-import code_gen_syntax.BreakStmt;
 import code_gen_syntax.PrintStmt;
 import code_gen_syntax.VariableExp;
 import code_gen_syntax.EqualsOp;
@@ -25,7 +23,6 @@ import code_gen_syntax.IfStmt;
 import code_gen_syntax.ReturnExpStmt;
 import code_gen_syntax.VoidType;
 import code_gen_syntax.FieldName;
-import code_gen_syntax.LessThanOp;
 import code_gen_syntax.Exp;
 import code_gen_syntax.Op;
 import code_gen_syntax.DereferenceExp;
@@ -108,8 +105,7 @@ public class MIPSCodeGenerator {
         if (stmt instanceof VariableDeclarationInitializationStmt ||
             stmt instanceof AssignmentStmt ||
             stmt instanceof PrintStmt ||
-            stmt instanceof FunctionCallStmt ||
-            stmt instanceof BreakStmt) {
+            stmt instanceof FunctionCallStmt){
             return false;
         } else if (stmt instanceof SequenceStmt) {
             final SequenceStmt asSeq = (SequenceStmt)stmt;
@@ -271,6 +267,8 @@ public class MIPSCodeGenerator {
         final VariableTableResetPoint reset = variables.makeResetPoint();
         if (isWhile) {
             currentWhileReset = reset;
+            int z;
+            z = variables.sizeAllocatedSinceResetPoint(reset);
         }
         compileStatement(stmt);
         freeSizeForVariables(variables.resetTo(reset));
@@ -404,14 +402,7 @@ public class MIPSCodeGenerator {
         currentWhileEnd = oldWhileEnd;
     }
 
-    public void compileBreakStmt(final BreakStmt stmt) {
-        assert(currentWhileStart != null);
-        assert(currentWhileEnd != null);
-        assert(currentWhileReset != null);
-        freeSizeForVariables(variables.sizeAllocatedSinceResetPoint(currentWhileReset));
-        add(new J(currentWhileEnd));
-    }
-
+   
     public void compileStatement(final Stmt stmt) {
         if (stmt instanceof VariableDeclarationInitializationStmt) {
             compileVariableDeclarationInitializationStmt((VariableDeclarationInitializationStmt)stmt);
@@ -431,9 +422,7 @@ public class MIPSCodeGenerator {
             compileIfStmt((IfStmt)stmt);
         } else if (stmt instanceof WhileStmt) {
             compileWhileStmt((WhileStmt)stmt);
-        } else if (stmt instanceof BreakStmt) {
-            compileBreakStmt((BreakStmt)stmt);
-        }else {
+        } else {
             assert(false);
         }
     }
@@ -446,16 +435,6 @@ public class MIPSCodeGenerator {
                    type instanceof BoolType ||
                    type instanceof PointerType) { // 32-bit word
             return 4;
-        } else if (type instanceof StructureType) {
-            final LinkedHashMap<FieldName, Type> fields =
-                structDecs.get(((StructureType)type).name);
-            int sum = 0;
-            for (final Type fieldType : fields.values()) {
-                sum += sizeof(fieldType);
-            }
-            assert(sum >= 0);
-            assert(sum % 4 == 0);
-            return sum;
         } else {
             assert(false);
             return 0;
@@ -549,34 +528,7 @@ public class MIPSCodeGenerator {
 
         expressionOffset += loadSize;
     } // compileDereferenceExp
-    
-    
-
-    public List<Map.Entry<FieldName, Type>> reverseFieldsFor(final StructureName structName) {
-        final LinkedHashMap<FieldName, Type> fields = structDecs.get(structName);
-        assert(fields != null);
-
-        final List<Map.Entry<FieldName, Type>> asList =
-            new ArrayList<Map.Entry<FieldName, Type>>(fields.entrySet());
-        Collections.reverse(asList);
-        return asList;
-    }
-    
-    public int fieldOffset(final StructureName structureName,
-                           final FieldName fieldName) {
-        int offset = 0;
-        // last value has offset zero
-        for (final Map.Entry<FieldName, Type> entry : reverseFieldsFor(structureName)) {
-            if (entry.getKey().equals(fieldName)) {
-                return offset;
-            }
-            offset += sizeof(entry.getValue());
-        }
-
-        assert(false);
-        return 0;
-    } // fieldOffset
-            
+       
            
     public void compileOp(final MIPSRegister destination,
                           final MIPSRegister left,
@@ -584,12 +536,8 @@ public class MIPSCodeGenerator {
                           final MIPSRegister right) {
         if (op instanceof PlusOp) {
             add(new Add(destination, left, right));
-        } else if (op instanceof MinusOp) {
-            add(new Sub(destination, left, right));
         } else if (op instanceof EqualsOp) {
             add(new Seq(destination, left, right));
-        } else if (op instanceof LessThanOp) {
-            add(new Slt(destination, left, right));
         } else {
             assert(false);
         }

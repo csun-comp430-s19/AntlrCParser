@@ -17,8 +17,6 @@ TEST_while_start0:
     addi $sp, $sp, -4
     sw $t0, 0($sp)
     addi $sp, $sp, 4
-    j TEST_while_end1
-    addi $sp, $sp, 4
     j TEST_while_start0
 TEST_while_end1:
     lw $t0, 0($sp)

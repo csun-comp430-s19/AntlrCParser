@@ -6,24 +6,45 @@ main:
     li $t0, 0
     addi $sp, $sp, -4
     sw $t0, 0($sp)
+TEST_while_start0:
+    lw $t0, 0($sp)
+    sw $t0, -4($sp)
+    addi $sp, $sp, -4
+    li $t0, 10
+    addi $sp, $sp, -4
+    sw $t0, 0($sp)
+    lw $t1, 0($sp)
+    addi $sp, $sp, 4
     lw $t0, 0($sp)
     addi $sp, $sp, 4
-    beq $t0, $zero, TEST_if_false_start0
+    seq $t0, $t0, $t1
+    addi $sp, $sp, -4
+    sw $t0, 0($sp)
+    lw $t0, 0($sp)
+    addi $sp, $sp, 4
+    beq $t0, $zero, TEST_while_end1
+    lw $t0, 0($sp)
+    sw $t0, -4($sp)
+    addi $sp, $sp, -4
     li $t0, 1
     addi $sp, $sp, -4
     sw $t0, 0($sp)
-    lw $a0, 0($sp)
+    lw $t1, 0($sp)
     addi $sp, $sp, 4
-    li $v0, 1
-    syscall
-    li $v0, 4
-    la $a0, newline
-    syscall
-    j TEST_if_false_end1
-TEST_if_false_start0:
-    li $t0, 2
+    lw $t0, 0($sp)
+    addi $sp, $sp, 4
+    add $t0, $t0, $t1
     addi $sp, $sp, -4
     sw $t0, 0($sp)
+    addi $t0, $sp, 4
+    lw $t1, 0($sp)
+    sw $t1, 0($t0)
+    addi $sp, $sp, 4
+    j TEST_while_start0
+TEST_while_end1:
+    lw $t0, 0($sp)
+    sw $t0, -4($sp)
+    addi $sp, $sp, -4
     lw $a0, 0($sp)
     addi $sp, $sp, 4
     li $v0, 1
@@ -31,6 +52,5 @@ TEST_if_false_start0:
     li $v0, 4
     la $a0, newline
     syscall
-TEST_if_false_end1:
     li $v0, 10
     syscall

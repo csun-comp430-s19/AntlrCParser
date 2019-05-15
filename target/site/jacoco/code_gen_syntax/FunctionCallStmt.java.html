@@ -4,9 +4,9 @@ public class FunctionCallStmt implements Stmt {
     public final FunctionCallExp asExp;
 
     public FunctionCallStmt(final FunctionName name,
-<span class="nc" id="L7">                            final Exp[] parameters) {</span>
-<span class="nc" id="L8">        asExp = new FunctionCallExp(name, parameters);</span>
-<span class="nc" id="L9">    }</span>
+<span class="fc" id="L7">                            final Exp[] parameters) {</span>
+<span class="fc" id="L8">        asExp = new FunctionCallExp(name, parameters);</span>
+<span class="fc" id="L9">    }</span>
 
     public int hashCode() {
 <span class="nc" id="L12">        return asExp.hashCode();</span>

@@ -17,7 +17,7 @@ TEST_while_start0:
     addi $sp, $sp, 4
     lw $t0, 0($sp)
     addi $sp, $sp, 4
-    slt $t0, $t0, $t1
+    seq $t0, $t0, $t1
     addi $sp, $sp, -4
     sw $t0, 0($sp)
     lw $t0, 0($sp)

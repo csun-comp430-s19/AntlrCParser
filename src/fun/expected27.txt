@@ -89,7 +89,7 @@ fib_if_false_start2:
     addi $sp, $sp, 4
     lw $t0, 0($sp)
     addi $sp, $sp, 4
-    sub $t0, $t0, $t1
+    add $t0, $t0, $t1
     addi $sp, $sp, -4
     sw $t0, 0($sp)
     jal fib0
@@ -103,7 +103,7 @@ fib_if_false_start2:
     addi $sp, $sp, 4
     lw $t0, 0($sp)
     addi $sp, $sp, 4
-    sub $t0, $t0, $t1
+    add $t0, $t0, $t1
     addi $sp, $sp, -4
     sw $t0, 0($sp)
     jal fib0
