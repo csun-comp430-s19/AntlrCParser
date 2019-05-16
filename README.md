@@ -1,7 +1,15 @@
-# AntlrCParser
-Parser for "C--"
+# C-- Compiler
 
-Members: Casandra Copp, Curtis Bartlett, Victoria Latta
+see https://github.com/csun-comp430-s19/C-- for our team's original repository. We made this new one after some design changes.
 
-Currently this parses the C grammar, found in the file 'C.g4' but we will be adjusting the C grammar that this code works with to fit our own language "C--" 
-'testProg3' shows things that are work in progress
+Members: Curtis Bartlett, Victoria Latta
+
+Parser for "C--" was written using Antlr
+
+Our language is a stripped down C style language with simple computational abilities but lacks structures and dynamic memory allocation.
+The compiler itself was implemented in Java.
+The compiled output is MIPS assembly.
+
+# Abstract Syntax
+
+
