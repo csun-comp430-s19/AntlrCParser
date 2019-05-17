@@ -46,15 +46,7 @@ How to use the app:
 
 ​	How to use compiler/interpreter: 
 
-![](C:\Users\Victoria\Dropbox\Screenshots\Screenshot 2019-05-16 22.10.15.png)
-
-![](C:\Users\Victoria\Dropbox\Screenshots\Screenshot 2019-05-16 22.12.25.png)
-
-![](C:\Users\Victoria\Dropbox\Screenshots\Screenshot 2019-05-16 22.14.02.png)
-
-![](C:\Users\Victoria\Dropbox\Screenshots\Screenshot 2019-05-16 22.15.19.png)
-
-![](C:\Users\Victoria\Dropbox\Screenshots\Screenshot 2019-05-16 22.16.29.png)
+*see powerpoint slides 6-10*
 
 
 
